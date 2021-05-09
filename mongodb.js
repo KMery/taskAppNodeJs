@@ -11,35 +11,8 @@ MongoClient.connect(connectionURL, { useUnifiedTopology: true }, (error, client)
 
     const db = client.db(databaseName);
 
-    // db.collection('users').findOne({name: 'Jane'}, (error, user) => {
-    //     if (error) {
-    //         return console.error('Unable to fetch data');
-    //     }
-
-    //     console.log(user);
-    // });
-
-    // db.collection('users').find({age: 27}).toArray((error, users) => {
-    //     if (error) {
-    //         return console.error('Unable to fetch data');
-    //     }
-
-    //     console.log(users);
-    // });
-
-    db.collection('tasks').findOne({"_id" : new ObjectId("6097122bd77b2a6aea6f6bd8")}, (error, task) => {
-        if (error) {
-            return console.error('Unable to fetch data');
-        }
-
-        console.log(task);
-    });
-
-    db.collection('tasks').find({status: true}).toArray((error, tasks) => {
-        if (error) {
-            return console.error('Unable to fetch data');
-        }
-
-        console.log(tasks);
-    })
+    db.collection('tasks').deleteOne({
+        "_id" : new ObjectId("6097122bd77b2a6aea6f6bd7")
+    }).then((result) => console.log(result))
+    .catch((err) => console.error(err));
 });
