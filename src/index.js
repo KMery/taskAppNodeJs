@@ -12,7 +12,7 @@ app.post('/users', (req, res) => {
 
     user.save()
         .then(() => res.send(user))
-        .catch(err => console.error(err));
+        .catch(err => res.status(400).send(err));
 });
 
 app.listen(port, () => {
