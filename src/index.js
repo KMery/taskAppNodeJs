@@ -12,8 +12,6 @@ const taskRouter = require('./routers/task');
 //     res.status(503).send('Server under maintenance!. We go back shortly');
 // });
 
-
-
 app.use(express.json());
 app.use(userRouter);
 app.use(taskRouter);
