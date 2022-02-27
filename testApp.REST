@@ -1,0 +1,29 @@
+@port=3001
+@url=http://localhost:{{port}}
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWVjNjliY2ZiZTkyOWRiZGY5ZTM5MWEiLCJpYXQiOjE2NDI4ODM1MTZ9.li1SW4Gz0hkymZX-1Z7iV-DyKP4Q18oHVPV4WD1dRVA
+###
+GET {{url}}/tasks
+Authorization:{{token}}
+###
+GET {{url}}/users/me
+Authorization: {{token}}
+###
+POST {{url}}/users
+Content-Type: application/json
+
+{
+    "name": "Test123",
+    "email": "test123@mail.com",
+    "password": "pass123"
+}
+###
+POST {{url}}/tasks
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+    "description": "this is a new task"
+}
+###task by id
+GET {{url}}/tasks/61ec6a77fbe929dbdf9e3923
+Authorization: {{token}}
